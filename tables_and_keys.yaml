@@ -1,0 +1,177 @@
+ACCOUNT_HISTORY:
+  primary_keys: [id]
+  order_key: _fivetran_end
+ACCOUNT_LABEL_HISTORY:
+  primary_keys: [account_id, label_id]
+  order_key: _fivetran_end
+AD_CUSTOM_PARAMETER_HISTORY:
+  primary_keys: [sequence_id, ad_id, ad_group_id]
+  order_key: _fivetran_end
+AD_GROUP_BIDDING_STRATEGY_HISTORY:
+  primary_keys: [ad_group_id]
+  order_key: _fivetran_end
+AD_GROUP_CRITERION_CUSTOM_PARAMETER_HISTORY:
+  primary_keys: [sequence_id, criterion_id, ad_group_id]
+  order_key: _fivetran_end
+AD_GROUP_CRITERION_HISTORY:
+  primary_keys: [id, ad_group_id]
+  order_key: _fivetran_end
+AD_GROUP_CRITERION_LABEL_HISTORY:
+  primary_keys: [criterion_id, ad_group_id, label_id]
+  order_key: _fivetran_end
+AD_GROUP_CUSTOM_PARAMETER_HISTORY:
+  primary_keys: [sequence_id, ad_group_id]
+  order_key: _fivetran_end
+AD_GROUP_HISTORY:
+  primary_keys: [id]
+  order_key: _fivetran_end
+AD_GROUP_LABEL_HISTORY:
+  primary_keys: [ad_group_id, label_id]
+  order_key: _fivetran_synced
+AD_HISTORY:
+  primary_keys: [id, ad_group_id]
+  order_key: _fivetran_end
+AD_LABEL_HISTORY:
+  primary_keys: [ad_id, ad_group_id, label_id]
+  order_key: _fivetran_end
+AD_LISTING_GROUP_CRITERION_HISTORY:
+  primary_keys: [criterion_id, ad_group_id]
+  order_key: _fivetran_synced
+AD_POLICY_TOPIC_CONSTRAINT_HISTORY:
+  primary_keys: [sequence_id, ad_group_id, ad_id, policy_topic_sequence_id]
+  order_key: _fivetran_end
+AD_POLICY_TOPIC_EVIDENCE_HISTORY:
+  primary_keys: [sequence_id, ad_group_id, ad_id, policy_topic_sequence_id]
+  order_key: _fivetran_end
+AD_POLICY_TOPIC_HISTORY:
+  primary_keys: [sequence_id, ad_group_id, ad_id]
+  order_key: _fivetran_end
+APP_AD_HISTORY:
+  primary_keys: [ad_id, ad_group_id]
+  order_key: _fivetran_end
+APP_ENGAGEMENT_AD_HISTORY:
+  primary_keys: [ad_id, ad_group_id]
+  order_key: _fivetran_end
+CALL_AD_HISTORY:
+  primary_keys: [ad_id, ad_group_id]
+  order_key: _fivetran_end
+CAMPAIGN_APP_CAMPAIGN_SETTING_HISTORY:
+  primary_keys: [campaign_id]
+  order_key: _fivetran_end
+CAMPAIGN_BIDDING_STRATEGY_HISTORY:
+  primary_keys: [campaign_id]
+  order_key: _fivetran_end
+CAMPAIGN_BUDGET_HISTORY:
+  primary_keys: [id, campaign_id]
+  order_key: _fivetran_end
+CAMPAIGN_CRITERION_AD_SCHEDULE_HISTORY:
+  primary_keys: [criterion_id, campaign_id]
+  order_key: _fivetran_synced
+CAMPAIGN_CRITERION_HISTORY:
+  primary_keys: [id, campaign_id]
+  order_key: _fivetran_synced
+CAMPAIGN_CRITERION_LISTING_SCOPE_DIMENSION_HISTORY:
+  primary_keys: [criterion_id, campaign_id]
+  order_key: _fivetran_end
+CAMPAIGN_CRITERION_PROXIMITY_HISTORY:
+  primary_keys: [criterion_id, campaign_id]
+  order_key: _fivetran_end
+CAMPAIGN_DYNAMIC_SEARCH_ADS_SETTING_HISTORY:
+  primary_keys: [campaign_id]
+  order_key: _fivetran_end
+CAMPAIGN_GEO_TARGET_TYPE_SETTING_HISTORY:
+  primary_keys: [campaign_id]
+  order_key: _fivetran_end
+CAMPAIGN_HISTORY:
+  primary_keys: [id]
+  order_key: _fivetran_end
+CAMPAIGN_HOTEL_SETTING_HISTORY:
+  primary_keys: [campaign_id]
+  order_key: _fivetran_end
+CAMPAIGN_LABEL_HISTORY:
+  primary_keys: [campaign_id, label_id]
+  order_key: _fivetran_end
+CAMPAIGN_LOCAL_SETTING_HISTORY:
+  primary_keys: [campaign_id]
+  order_key: _fivetran_end
+CAMPAIGN_NETWORK_SETTING_HISTORY:
+  primary_keys: [campaign_id]
+  order_key: _fivetran_end
+CAMPAIGN_OPTIMIZATION_GOAL_SETTING_HISTORY:
+  primary_keys: [sequence_id, campaign_id]
+  order_key: _fivetran_end
+CAMPAIGN_REAL_TIME_BIDDING_SETTING_HISTORY:
+  primary_keys: [campaign_id]
+  order_key: _fivetran_end
+CAMPAIGN_SHARED_SET_HISTORY:
+  primary_keys: [campaig_id, shared_set_id]
+  order_key: _fivetran_end
+CAMPAIGN_SHOPPING_SETTING_HISTORY:
+  primary_keys: [campaign_id]
+  order_key: _fivetran_end
+CAMPAIGN_TARGETING_SETTING_HISTORY:
+  primary_keys: [sequence_id, campaign_id]
+  order_key: _fivetran_synced
+CAMPAIGN_TRACKING_SETTING_HISTORY:
+  primary_keys: [campaign_id]
+  order_key: _fivetran_end
+DISPLAY_UPLOAD_AD_HISTORY:
+  primary_keys: [ad_id, ad_group_id]
+  order_key: _fivetran_end
+EXPANDED_DYNAMIC_SEARCH_AD_HISTORY:
+  primary_keys: [ad_id, ad_group_id]
+  order_key: _fivetran_end
+EXPANDED_TEXT_AD_HISTORY:
+  primary_keys: [ad_id, ad_group_id]
+  order_key: _fivetran_end
+GMAIL_AD_HISTORY:
+  primary_keys: [ad_id, ad_group_id]
+  order_key: _fivetran_end
+HOTEL_AD_HISTORY:
+  primary_keys: [ad_id, ad_group_id]
+  order_key: _fivetran_end
+IMAGE_AD_HISTORY:
+  primary_keys: [ad_id, ad_group_id]
+  order_key: _fivetran_end
+LEGACY_APP_INSTALL_AD_HISTORY:
+  primary_keys: [ad_id, ad_group_id]
+  order_key: _fivetran_synced
+LEGACY_RESPONSIVE_DISPLAY_AD_HISTORY:
+  primary_keys: [ad_id, ad_group_id]
+  order_key: _fivetran_end
+LOCAL_AD_HISTORY:
+  primary_keys: [ad_id, ad_group_id]
+  order_key: _fivetran_end
+RESPONSIVE_DISPLAY_AD_HISTORY:
+  primary_keys: [ad_id, ad_group_id]
+  order_key: _fivetran_end
+RESPONSIVE_SEARCH_AD_HISTORY:
+  primary_keys: [ad_id, ad_group_id]
+  order_key: _fivetran_end
+SHARED_CRITERION_HISTORY:
+  primary_keys: [id, shared_set_id]
+  order_key: _fivetran_end
+SHARED_SET_HISTORY:
+  primary_keys: [id]
+  order_key: _fivetran_end
+SHOPPING_COMPARISON_LISTING_AD_HISTORY:
+  primary_keys: [ad_id, ad_group_id]
+  order_key: _fivetran_end
+SHOPPING_PRODUCT_AD_HISTORY:
+  primary_keys: [ad_id, ad_group_id]
+  order_key: _fivetran_end
+SHOPPING_SMART_AD_HISTORY:
+  primary_keys: [ad_id, ad_group_id]
+  order_key: _fivetran_end
+SMART_CAMPAIGN_AD_HISTORY:
+  primary_keys: [ad_id, ad_group_id]
+  order_key: _fivetran_end
+TEXT_AD_HISTORY:
+  primary_keys: [ad_id, ad_group_id]
+  order_key: _fivetran_end
+VIDEO_AD_HISTORY:
+  primary_keys: [ad_id, ad_group_id]
+  order_key: _fivetran_end
+VIDEO_RESPONSIVE_AD_HISTORY:
+  primary_keys: [ad_id, ad_group_id]
+  order_key: _fivetran_end
