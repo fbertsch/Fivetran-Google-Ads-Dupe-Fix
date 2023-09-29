@@ -16,24 +16,26 @@ select * from (
 ) with_latest
 where {order_key} < latest
 """
+
+
 def check_rows(tables, project, dataset):
     print("Checking history tables for duplicates")
     client = google.cloud.bigquery.Client()
     queries = {}
 
     for table_name, details in tables.items():
-        primary_keys_str = ", ".join(details['primary_keys'])
+        primary_keys_str = ", ".join(details["primary_keys"])
         check_query = check_query_skeleton.format(
-            table_name = table_name.lower(),
-            primary_keys_str = primary_keys_str,
+            table_name=table_name.lower(),
+            primary_keys_str=primary_keys_str,
             project=project,
             dataset=dataset,
-            order_key=details['order_key']
+            order_key=details["order_key"],
         )
         queries[table_name] = client.query(check_query)
 
     for table, query in queries.items():
-        print(f'  {table}... ', end='')
+        print(f"  {table}... ", end="")
         try:
             if res := list(query.result()):
                 print(f"has {len(res)} duplicates")
@@ -63,26 +65,32 @@ where exists (
     and {primary_keys_str_comparison}
 );
 """
+
+
 def delete_rows(tables, project, dataset):
     print("Deleting duplicates from history tables")
 
     client = bigquery.Client()
     queries = {}
 
-    tables = {"CAMPAIGN_APP_CAMPAIGN_SETTING_HISTORY": {
-      'primary_keys': ['campaign_id'],
-      'order_key': '_fivetran_end',
-    }}
+    tables = {
+        "CAMPAIGN_APP_CAMPAIGN_SETTING_HISTORY": {
+            "primary_keys": ["campaign_id"],
+            "order_key": "_fivetran_end",
+        }
+    }
     for table_name, details in tables.items():
-        primary_keys_str = ", ".join(details['primary_keys'])
-        primary_keys_str_comparison = " and ".join((f"with_latest.{key} = tname.{key}" for key in details['primary_keys']))
+        primary_keys_str = ", ".join(details["primary_keys"])
+        primary_keys_str_comparison = " and ".join(
+            (f"with_latest.{key} = tname.{key}" for key in details["primary_keys"])
+        )
         deletion_query = delete_query_skeleton.format(
-            table_name = table_name.lower(),
-            primary_keys_str = primary_keys_str,
-            primary_keys_str_comparison = primary_keys_str_comparison,
+            table_name=table_name.lower(),
+            primary_keys_str=primary_keys_str,
+            primary_keys_str_comparison=primary_keys_str_comparison,
             project=project,
             dataset=dataset,
-            order_key=details['order_key'],
+            order_key=details["order_key"],
         )
         print(deletion_query)
         i = input("Continue? y/n")
@@ -91,7 +99,7 @@ def delete_rows(tables, project, dataset):
         queries[table_name] = client.query(deletion_query)
 
     for table, query in queries.items():
-        print(f'  {table}... ', end='')
+        print(f"  {table}... ", end="")
         try:
             if res := list(query.result()):
                 print(f"has {len(res)} results")
@@ -107,19 +115,23 @@ def delete_rows(tables, project, dataset):
 
 
 @click.command()
-@click.option('--delete', is_flag=True, help='Actually delete data. Run without this first!')
-@click.option('--project', required=True, help='Bigquery project the tables are located in')
-@click.option('--dataset', required=True, help='Bigquery dataset the tables are located in')
+@click.option(
+    "--delete", is_flag=True, help="Actually delete data. Run without this first!"
+)
+@click.option(
+    "--project", required=True, help="Bigquery project the tables are located in"
+)
+@click.option(
+    "--dataset", required=True, help="Bigquery dataset the tables are located in"
+)
 def main(delete, project, dataset):
-
-    with open(tables_and_keys_file, 'r') as f:
+    with open(tables_and_keys_file, "r") as f:
         tables = yaml.safe_load(f)
 
     if delete:
         delete_rows(tables, project, dataset)
     else:
         check_rows(tables, project, dataset)
-
 
 
 if __name__ == "__main__":
